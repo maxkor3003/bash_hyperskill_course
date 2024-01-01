@@ -2,51 +2,103 @@
 
 $ echo Hello, Linux!
 
-#########################################################
+$ echo 'Hello, Linux!' 'Here I am!'
 
-
-
-
-
-#########################################################
-
-
-
-
+$ echo -e 'Hello, Linux! \nHere I am!'
+Hello, Linux!
+Here I am!
 
 #########################################################
+# Пишим в файл с затиранием
+$ echo '#!/usr/bin/env bash' > hello_world.sh
 
-
-
-
-
+# Пишим в файл с добавлением
+$ echo 'Hello, world!' >> hello_world.sh
 
 #########################################################
 
+Run a shell script
 
-
-
-
-
-#########################################################
-
-
-
-
+bash hello_world.sh.
+or
+chmod +x hello_world.sh
 
 #########################################################
 
+Arguments
 
+The null parameter $0 is always the name of the script
+The $# variable denotes the total number of the parameters
 
+#!/usr/bin/env bash
 
-
+echo "You provided $# facts about yourself!"
+echo "Your name is $1"
+echo "Your age is $2"
 
 #########################################################
 
+group all the parameters passed to the script. To do this, you can use the $* and $@ variables
 
+$* variable contains all the parameters entered on the command line as a single "word", everything you pass will be collapsed into a single variable
 
+$@ variable, the parameters are split into separate "words". There will be a separate position for each parameter
 
+#!/usr/bin/env bash
 
+echo "You provided $# facts about yourself!"
+echo "Your name is $1"
+echo "Your age is ${2}"
+
+echo "$* - one word all params"
+echo "$@ - several words all params"
+
+$ bash personal_data.sh Max 42 one word all params
+You provided 6 facts about yourself!
+Your name is Max
+Your age is 42
+Max 42 one word all params - one word all params
+Max 42 one word all params - several words all params
+
+#########################################################
+
+Functions
+
+#set
+function function_name {} 
+
+or 
+
+function_name() {}
+
+#!/usr/bin/env bash
+
+personal_data() {
+    echo "You provided $# facts about yourself!"
+    echo "Your name is $1"
+    echo "Your age is $2"
+}
+personal_data "Amy" 26 (это внутри файла!!!)
+
+#########################################################
+
+$ bash personal_data.sh
+You provided 2 facts about yourself!
+Your name is Amy
+Your age is 26
+
+#########################################################
+
+Help files
+
+$ man ls
+or
+3 ways:
+$ sudo npm install -g tldr
+$ sudo snap install tldr
+$ sudo apt install tldr
+or
+$ whatis ls
 
 #########################################################
 
