@@ -166,50 +166,73 @@ fi
 
 #########################################################
 
+Variables and aliases
 
+$ echo $HOME
+/home/<user name>
 
+#########################################################
 
+A subset of shell variables exported to any new shell from the current one is called environment variables. You can convert any variable to an environment variable by using the export command
+
+export VARIABLE
+
+#########################################################
+
+the list of shell variables
+
+set | less
+printenv | less
+
+#########################################################
+
+Creating variables
+
+$ MY_VARIABLE="some value"
+$ echo $MY_VARIABLE
+some value
+
+To unset the value use unset without the $ sign
+$ unset MY_VARIABLE
+
+#########################################################
+
+Variables created this way in the shell will be available only in the current shell. 
+You can save them to one of the start-up files like /etc/profile or ~/.bashrc 
+or 
+~/.bash_profile
+so you can use them every time you start the shell.
 
 
 #########################################################
 
+PATH of programs
 
+$ echo $PATH
 
+PATH=/home/hagrid/.local/bin: /bin: /usr/bin: /usr/local/bin: /sbin: /usr/sbin: /usr/local/sbin
 
+You can add a directory with your programs to the PATH and then export variable to the environment like this:
 
-#########################################################
-
-
-
-
-
-
-#########################################################
-
-
-
-
-
+PATH=$PATH:/path-to-your-directory
+export PATH
 
 #########################################################
 
+Aliases
 
+Aliases are synonyms or shortcuts for commands that you can define for your convenience.
 
+alias name-of-alias='command'
+Be aware, there shouldn't be any white spaces around the = sign.
 
+alias rm="rm -i"
 
-#########################################################
+To watch all predefined and set by you aliases on your system type alias without arguments
 
+To remove an alias from the environment, use the unalias command:
 
-
-
-
-
-#########################################################
-
-
-
-
-
+unalias rm
 
 #########################################################
 
