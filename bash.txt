@@ -102,35 +102,66 @@ $ whatis ls
 
 #########################################################
 
+Basic if-statement
 
+if [conditions]; then
+   commands
+fi
 
-
-
-#########################################################
-
-
-
-
-
+If the return status of the test commands is 0 (success), the commands inside the if-block get executed and if the status is non-zero (failure), the commands are skipped.
 
 #########################################################
 
+Test command and its options
 
+test expression
+or
+[ expression ]
 
-
-
-
-#########################################################
-
-
-
-
+The test command returns a value of 0 when the expression is true and a value of 1 when the expression is false.
 
 #########################################################
 
+# Checking the password entered by user
 
+echo "Enter password: "
+read input
+if [ $input = "Pass!@#" ]; then
+    echo "Correct password entered"
+fi
 
+#########################################################
 
+The else block
+
+if [ $input = "Pass!@#" ]; then
+    echo "Correct password entered"
+else
+    echo "Incorrect password entered"
+fi
+
+#########################################################
+
+The elif block
+
+num1=20;
+num2=10;
+
+if [ "$num1" -eq "$num2" ]; then
+    echo "Numbers are equal"
+elif [ "$num1" -gt "$num2" ]; then
+    echo "First number is greater"
+else
+    echo "Second number is greater"
+fi
+
+if test-commands; then
+    consequent-commands
+elif more-test-commands; then
+    more-consequents
+else
+    some-more-consequents
+fi
 
 
 #########################################################
