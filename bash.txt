@@ -9,6 +9,7 @@ Hello, Linux!
 Here I am!
 
 #########################################################
+
 # Пишим в файл с затиранием
 $ echo '#!/usr/bin/env bash' > hello_world.sh
 
@@ -162,7 +163,6 @@ elif more-test-commands; then
 else
     some-more-consequents
 fi
-
 
 #########################################################
 
